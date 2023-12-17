@@ -40,6 +40,7 @@ class MusicManifestApp:
         ("Browse Inventory", self.browse_inventory),
         ("Showcase", self.showcase_images),
         ("Settings", self.show_settings),
+        ("About", self.show_about),
         ("Exit", self.master.destroy)
     ]
 
@@ -49,6 +50,7 @@ class MusicManifestApp:
             ("View Inventory", self.view_inventory),
             ("Showcase", self.showcase_images),
             ("Settings", self.show_settings),
+            ("About", self.show_about),
             ("Exit", self.master.destroy) 
         ]
 
@@ -253,7 +255,7 @@ class MusicManifestApp:
         return showcase_button_frame
 
     def showcase_images(self):
-         # Opens a window to showcase images.
+        # Opens a window to showcase images.
         showcase_window = tk.Toplevel(self.master)
         showcase_window.title("Showcase")
 
@@ -268,6 +270,18 @@ class MusicManifestApp:
         label2.text = "The album Leaving Meaning by Swans"
         label2.config(compound=tk.BOTTOM)
 
+    def show_about(self):
+        # Information in the "About" section
+        about_window = tk.Toplevel(self.master)
+        about_window.title("About Music Manifest")
+
+        about_text = (
+            "Music Manifest\n\n"
+            "A simple application for managing music lists and record store inventory.\n\n"
+            "Developed by Luke Patterson"
+        )
+
+        tk.Label(about_window, text=about_text, font=("Arial", 14)).pack(pady=(20, 10))
 
 def start_program():
     # Entry point to start program
